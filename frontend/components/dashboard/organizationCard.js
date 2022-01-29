@@ -11,11 +11,14 @@ export default function OrganizationCard(props) {
             </div>
             <div className="flex flex-col">
                 <button className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full m-2">
-                    View Projects
+                    {props.button1}
                 </button>
-                <button className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full m-2">
-                    View Members
-                </button>
+                {props.button2 ? (
+                    <button className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full m-2">
+                        {props.button2}
+                    </button>
+                ):<></>}
+                
             </div>
         </div>
     )
