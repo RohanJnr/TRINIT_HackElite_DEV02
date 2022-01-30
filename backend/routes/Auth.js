@@ -27,7 +27,8 @@ router.post("/login",asyncWrap(async(req,res,next)=>{
     let payload={id:user._id,...roles};
     
     let token=jwt.sign(payload,process.env.JSECRET,{expiresIn:"3d"});
-    return res.status(200).json({success:true, data:{user,token}});
+    let {password,...others}=user._doc;
+    return res.status(200).json({success:true, data:{...others,token}});
 
 }));
 

@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function OrganizationCard(props) {
     const router = useRouter()
-
+    
     return (
         <div onClick={()=>router.push(`/${props.name}`)} className="my-20 p-10 w-full flex flex-row shadow-xl md:rounded-lg justify-between items-center bg-white hover:scale-105 ease-in duration-300 cursor-pointer">
             <div className="p-2 flex">

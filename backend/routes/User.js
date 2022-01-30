@@ -1,4 +1,4 @@
-const { assignUser, getUser } = require("../controllers/User");
+const { assignUser, getUser, getUserOrgs } = require("../controllers/User");
 const { useErrorCreate } = require("../errorClass");
 const asyncWrap = require("../middleware/asyncHandler");
 const { UserModel } = require("../models/User");
@@ -11,8 +11,8 @@ const router=require("express").Router();
 //tasks: CRUD
 
 //dashboard details:signed IN
-router.get("/:id",verifyToken,getUser);
-
+router.get("/",verifyToken,getUser);
+router.get("/orgs",verifyToken,getUserOrgs);
 
 //assigning post to a user
 router.post("/assign/:id",verifyTokenWithAdmin,assignUser);
