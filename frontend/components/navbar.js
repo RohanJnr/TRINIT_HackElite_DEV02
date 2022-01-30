@@ -31,7 +31,7 @@ export default function Navbar(props) {
             </div>
             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                    <a href="#" className="text-white text-3xl font-bold" aria-current="page">HackElite</a>
+                    <a href="/" className="text-white text-3xl font-bold" aria-current="page">HackElite</a>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                 <div className="flex space-x-4">

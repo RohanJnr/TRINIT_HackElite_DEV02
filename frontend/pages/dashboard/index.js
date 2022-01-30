@@ -12,13 +12,13 @@ export default () => {
                 <p>Manage your organizaitons here!</p>       
             </div>
             <div>
-                {orgs.map(item => {
-                    return <OrganizationCard 
-                    name={item} 
-                    role="Manager"
-                    button1="View Projects"
-                    />
-                })}
+                    {orgs.map(item => {
+                        return <OrganizationCard 
+                        name={item} 
+                        role="Manager"
+                        button1="View Projects"
+                        />
+                    })}
             </div>
         </>
     )
