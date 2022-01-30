@@ -6,8 +6,23 @@ const ProjectSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    description:String,
+    orgId:String,
     issues:[String],
-    department:[String]
+    people:[{
+            role:String,
+            userId:String
+     }]   
+    ,
+    isterminated:{
+        type:Boolean,
+        default:false
+    },
+    notifications:[String],
+    tags:{
+        type:[String],
+        default:["easy","bug"]
+    }
     
 })
 
