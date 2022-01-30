@@ -3,8 +3,15 @@ import { useRouter } from 'next/router'
 export default function ProjectCard(props) {
     const router = useRouter()
 
+    const handleNewIssueRoute = () => {
+        return `${props.organization}/${props.name}/issues/new`
+    }
+
     return (
-        <div onClick={()=>router.push(`${props.organization}/${props.name}/issues`)} className="my-20 p-10 w-full flex flex-row shadow-xl md:rounded-lg justify-between items-center bg-white hover:scale-105 ease-in duration-300 cursor-pointer">
+        <div onClick={()=>router.push({
+            pathname: `[organizationName]/[projectName]/issues`,
+            query: {organizationName: router.query.organizationName, projectName: props.name}
+        })} className="my-20 p-10 w-full flex flex-row shadow-xl md:rounded-lg justify-between items-center bg-white hover:scale-105 ease-in duration-300 cursor-pointer">
             <div className="p-2">
                 <h1 className="text-4xl font-bold title-font text-gray-700 my-2">{props.name}</h1>
                 <small className="text-lg font-semibold text-gray-500 m-1">Role: {props.role}</small>

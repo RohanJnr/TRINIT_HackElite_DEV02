@@ -1,7 +1,14 @@
 import Tag from './tag'
 import Status from './status'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 export default function Issue(props) {
+    const router = useRouter()
+
+    console.log("here")
+    console.log(props)
+    console.log(router.query)
     return (
         <tbody className="bg-white divide-y divide-gray-200">
             <tr>
@@ -32,8 +39,12 @@ export default function Issue(props) {
                     <button
                         className=" bg-gray-800 text-white w-24 h-10"
                         style={{ borderRadius: "25px" }}
-                    >
-                        Edit
+                    >   
+                    <Link href={`${router.query.organizationName}/${router.query.projectName}/issues/${props.issueName}`}>
+                        <a>
+                            View
+                        </a>
+                    </Link>
                     </button>
                 </td>
             </tr>

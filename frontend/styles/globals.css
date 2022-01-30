@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.something {
+    display: grid;
+    grid-template-columns: 20fr 1fr;
+    gap: 6rem;
+}
+
+.something section {
+    padding-top: 3rem;
+}

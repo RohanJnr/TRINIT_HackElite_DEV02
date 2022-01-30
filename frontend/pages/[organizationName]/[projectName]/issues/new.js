@@ -15,7 +15,6 @@ function NewIssue() {
         event.preventDefault()
         const title = event.target.title.value
         const description = value
-        alert(title+description)
     }
     return (
         <>
@@ -32,8 +31,6 @@ function NewIssue() {
         <MDEditor
         value={value}
         onChange={setValue}
-        // preview="preview"
-        // hideToolbar={true}
         />
         </div>
         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
