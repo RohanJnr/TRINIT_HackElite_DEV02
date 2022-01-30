@@ -12,9 +12,9 @@ const IssueSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    approvedBy:String,
     manager:{
         type:String,
-        required:true
     },
     assignedTo:{
         type:String,
@@ -29,6 +29,10 @@ const IssueSchema=new mongoose.Schema({
         type:Boolean,
         default:false
     },
+    isApproved:{
+        type:Boolean,
+        default:false
+    },
     //to determine to which manager, the notification is to be sent
     idepartment:{
         type:String,
@@ -37,6 +41,9 @@ const IssueSchema=new mongoose.Schema({
     iproject:{
         type:String,
         required:true
+    },
+    priority:{
+        type:Number
     }
 },{timestamps:true, collection:"Issues"})
 
