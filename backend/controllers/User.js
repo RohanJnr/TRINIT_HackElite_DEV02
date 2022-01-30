@@ -1,5 +1,6 @@
 const asyncWrap=require("../middleware/asyncHandler");
 const {useErrorCreate} =require("../middleware/errorHandler");
+const { OrgModel } = require("../models/Organisation");
 const { UserModel } = require("../models/User");
 
 const assignUser=async(req,res)=>{
@@ -31,7 +32,7 @@ const assignUser=async(req,res)=>{
 
 
 const getUser=asyncWrap(async(req,res)=>{
-    let {id}=req.params;
+    let {id}=req.user;
     let user=await UserModel.findById(id);
     let projects={}
     let orgs={}
@@ -48,7 +49,34 @@ const getUser=asyncWrap(async(req,res)=>{
     next(useErrorCreate("User not found",404));
 })
 
+
+
+const getUserOrgs=asyncWrap(async(req,res)=>{
+    let {id}=req.user;
+    let user=await UserModel.findById(id);
+    let orgs={}
+    
+    user.posts.forEach((item)=>{
+         if(item.orgId){
+                orgs={...orgs,[`${item.orgId}`]:{orgId:item.orgId,role:item.role}}
+         }
+    })
+    
+
+    const ids=Object.keys(orgs);
+    let sub=await OrgModel.find({_id:{$in:ids}});
+    let namesId=sub.map((item)=>({oname:item.name,id:item._id,role:orgs[item._id].role}))
+    
+    
+    
+    if(namesId){
+        return res.status(200).json({success:true, data:{namesId}});
+    }
+    next(useErrorCreate("Interruption",402));
+})
+
 module.exports={
     assignUser,
-    getUser
+    getUser,
+    getUserOrgs
 }

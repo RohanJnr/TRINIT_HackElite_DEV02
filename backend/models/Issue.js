@@ -33,11 +33,7 @@ const IssueSchema=new mongoose.Schema({
         type:Boolean,
         default:false
     },
-    //to determine to which manager, the notification is to be sent
-    idepartment:{
-        type:String,
-        required:true
-    },
+   
     iproject:{
         type:String,
         required:true

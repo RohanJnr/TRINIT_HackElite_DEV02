@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 
 export default function OrganizationCard(props) {
     const router = useRouter()
-
+    
     return (
         <div onClick={()=>router.push(`/organisation/${props.name}`)} className="my-20 p-10 w-full flex flex-row shadow-xl md:rounded-lg justify-between items-center bg-slate-50 hover:scale-105 ease-in duration-300 cursor-pointer">
             <div className="p-2">
